@@ -1,0 +1,25 @@
+<div class="container">
+  <h1>Survey Monkey</h1>
+  <h4>User Account</h4>
+  <%= @user.name%><br>
+  <%= @user.email%><br><br><br>
+<form action="/survey" method="post">
+    <label>Title :</label>
+    <input type="text" name="survey[title]" placeholder="Give your survey a name."><br><br>
+    <input type="submit" value="+ Add New Survey"><br><br>
+  </form>
+
+</div>
+
+<div class="container">
+
+
+  <% unless @surveys.nil? %>
+  <% i = 1 %>
+    <p><% @surveys.each do|survey| %>
+    <h4><%= "#{i}. "%><a href= <%= "/survey/#{survey.id}"%>> <%= survey.title %></a></h4>
+    <% i += 1 %>
+    </p>
+  <% end %>
+<% end %>
+</div>

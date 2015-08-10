@@ -1,0 +1,33 @@
+<div class="container">
+  <h1>Get started</h1>
+  <h4>User Account</h4>
+  <%= @user.name%><br>
+  <%= @user.email%>
+
+
+
+
+</div>
+
+<div class='container'>
+    <h3><%= @survey.title %></h3>
+
+    <form action="/survey/<%= @survey.id%>/question" method="post">
+      <textarea name="question[text]" placeholder="Enter your question" ></textarea>
+      <br><br>
+      <input type="submit" value="Add question">
+    </form><br><br>
+
+
+    <% unless @questions.nil? %>
+      <% i = 1 %>
+        <p><% @questions.each do|question| %>
+        <h4><%= "#{i}. "%><%= question.text %></a></h4>
+        <% i += 1 %>
+        </p>
+  <% end %>
+<% end %>
+
+</div>
+
+
